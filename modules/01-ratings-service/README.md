@@ -1,9 +1,5 @@
 # Review and run the _ratings_ service locally
 
-1. Download Istio and Bookinfo source
-   ```
-   make setup
-   ```
 1. Review a single service: ratings
    ```
    cd src/ratings
