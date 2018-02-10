@@ -11,7 +11,7 @@
    ```
 1. Run ratings
    ```
-   npm start 8000
+   npm start 9080
    ```
 
-1. Access http://localhost:8000/ratings/7
+1. Access http://localhost:9080/ratings/7
