@@ -1,0 +1,24 @@
+# Run the _ratings_ service in a docker container
+
+1. cd src/ratings
+
+1. Build docker image
+   ```
+   docker build -t $USER/ratings .
+   ```
+1. Run ratings
+   ```
+   docker run -d -p 9081:9080 $USER/ratings
+   ```
+
+1. Access http://localhost:9081/ratings/7
+
+1. Observe the running container
+   ```
+   docker ps
+   ```
+
+1. Stop the running container
+   ```
+   docker stop <container ID>
+   ```
