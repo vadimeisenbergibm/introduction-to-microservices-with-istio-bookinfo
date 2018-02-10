@@ -14,4 +14,4 @@
    npm start 8000
    ```
 
-1. Access http://localhost:8000
+1. Access http://localhost:8000/ratings/7
