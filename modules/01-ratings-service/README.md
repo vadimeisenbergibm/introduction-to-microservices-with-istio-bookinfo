@@ -3,7 +3,7 @@ This learning module demonstrates the work on a single microservice, on a local 
 
 1. Review the code of the service. Note the "embedded" Web Server and aspects related to HTTP - headers, the path, the status code.
    ```
-   cd src/ratings
+   cd ../../src/ratings
    more ratings.js
    ```
 1. Download npm modules
