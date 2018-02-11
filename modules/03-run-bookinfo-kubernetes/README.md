@@ -4,11 +4,14 @@ This learning module shows you an application of four microservices: _productpag
 
 1. Skim `bookinfo.yaml` - this is a Kubernetes deployment spec of the app. Notice the services and the deployments, and also the replication: 3 replicas of each microservice.
 
-1. Deploy to Kubernetes. Notice that each deployment has three pods.
+1. Deploy to Kubernetes.
   ```
   kubectl apply -f bookinfo.yaml
   ```
-
+1. Check the pods status. Notice that each microservice has three pods.
+   ```
+   kubectl get pods
+   ```
 1. Edit `ingress.yaml` - specify your host instead of `your host`.
     * For Bluemix, get your host by running: `bx cs clusters`, `bx cs cluster-get <your cluster>`, `Ingress subdomain` field.
 
@@ -16,10 +19,7 @@ This learning module shows you an application of four microservices: _productpag
    ```
    kubectl apply -f ingress.yaml
    ```
-1. Check the pods status:
-   ```
-   kubectl get pods
-   ```
+
 1. Access `http://<your host>/productpage`.
 
 1. Observe how microservices call each other, for example, _reviews_ calls _ratings_ microservice by the URL `http://ratings:9080/ratings`:
