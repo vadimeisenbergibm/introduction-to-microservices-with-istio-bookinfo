@@ -9,7 +9,11 @@ The ideas and scenarios taken from the [Production-Ready Microservices](http://s
 0. Install node.js and npm, docker and get access to a Kubernetes cluster.
 
 1. Download Istio and Bookinfo source
-   ```
+   ```bash
    make setup
+   ```
+1. Add istio/bin to your ``$PATH`
+   ```bash
+   export PATH=$(pwd)/istio-*/bin:$PATH
    ```
 2. Go over `modules`, by their prefix number, issuing `cd` in each modules's directory.

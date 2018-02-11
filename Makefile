@@ -14,7 +14,6 @@
 
 setup:
 	curl -L https://git.io/getLatestIstio | sh -
-	export PATH="$PATH:./istio-*/bin"
 	git clone https://github.com/istio/istio.git
 	mv istio/samples/bookinfo/src .
 	rm -rf istio
