@@ -21,3 +21,4 @@ Let's perform some testing of our microservice . This learning module exemplifie
       ```bash
       for pod in $(kubectl get pods -l app=details -o jsonpath='{.items[*].metadata.name}'); do echo killing  $pod; kubectl exec -it $pod -- pkill ruby; done
       ```
+   Note that in the both cases the application did not crash. The crash in the _details_ microservice did not cause other microservices to fail. It means we did not have a _cascading failure_ in this situation. On the contrary, we have _gradual service degradation_: despite one microservice being crashed, the application still provided useful functionality: displayed the reviews and the basic info about the book.
