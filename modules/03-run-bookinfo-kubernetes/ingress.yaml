@@ -21,7 +21,7 @@ metadata:
   name: gateway
 spec:
   rules:
-  - host: <your host>
+  - host: vadim-eisenberg.uk-south.containers.mybluemix.net
     http:
       paths:
       - path: /productpage

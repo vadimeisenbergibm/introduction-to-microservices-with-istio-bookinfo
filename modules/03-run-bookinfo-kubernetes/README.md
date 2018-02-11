@@ -12,11 +12,14 @@ This learning module shows you an application of four microservices: _productpag
 1. Edit `ingress.yaml` - specify your host instead of `your host`.
     * For Bluemix, get your host by running: `bx cs clusters`, `bx cs cluster-get <your cluster>`, `Ingress subdomain` field.
 
-1. Deploy your ingress
+1. Deploy your ingress:
    ```
    kubectl apply -f ingress.yaml
    ```
-
+1. Check the pods status:
+   ```
+   kubectl get pods
+   ```
 1. Access `http://<your host>/productpage`.
 
 1. Observe how microservices call each other, for example, _reviews_ calls _ratings_ microservice by the URL `http://ratings:9080/ratings`:
@@ -28,23 +31,3 @@ This learning module shows you an application of four microservices: _productpag
    ```java
    private final static String ratings_service = "http://ratings:9080/ratings";
    ```
-
-1. Let's perform some testing of our microservice from inside the cluster. This part exemplifies that you can test your microservices in production! For that, we will use a dummy pod, `sleep`.
-   ```
-   kubectl apply -f ../../istio-*/samples/sleep/sleep.yaml
-   ```
-
-   Once the sleep pod is ready, we can issue HTTP requests from it to our service and test it
-   ```
-   kubectl exec -it `kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}'` bash
-  curl http://ratings:9080/ratings/7
-   ```
-1. Let's do some [chaos testing](http://www.boyter.org/2016/07/chaos-testing-engineering/) in production and see how our application reacts. After each chaos operation, access your `http://<your host>/productpage` and see if anything  changed.
-   1. Let's kill the _details_ service in one pod.
-      ```bash
-      kubectl exec -it $(kubectl get pods -l app=details -o jsonpath='{.items[0].metadata.name}') -- pkill ruby
-      ```
-    2. Let's kill the _details_ services in all its pods.
-      ```bash
-      for pod in $(kubectl get pods -l app=details -o jsonpath='{.items[*].metadata.name}'); do echo killing  $pod; kubectl exec -it $pod -- pkill ruby; done
-      ```
