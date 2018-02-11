@@ -1,9 +1,10 @@
-# Review and run the _ratings_ service locally
+# Review and run the _ratings_ microservice locally.
+This learning module demonstrates the work on a single microservice, on a local developer machine. The microservice is written in node.js and is a small web app by itself - it listens to a port, expects for HTTP GET requests on path `/ratings/{productID}` and returns the product ratings by the reviewers.
 
-1. Review a single service: ratings
+1. Review the code of the service. Note the "embedded" Web Server and aspects related to HTTP - headers, the path, the status code.
    ```
    cd src/ratings
-   less ratings.js
+   more ratings.js
    ```
 1. Download npm modules
    ```

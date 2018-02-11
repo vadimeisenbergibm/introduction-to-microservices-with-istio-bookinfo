@@ -1,7 +1,11 @@
-# Run the _ratings_ service in a docker container
+# Run the _ratings_ service in a docker container.
+This learning module shows how you can create a docker image and run it locally.
 
-1. cd src/ratings
-
+1. Observe the `Dockerfile`
+   ```
+   cd src/ratings
+   more Dockerfile
+   ```
 1. Build docker image
    ```
    docker build -t $USER/ratings .
