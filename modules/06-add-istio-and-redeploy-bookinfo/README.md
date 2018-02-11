@@ -20,3 +20,4 @@
   kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml)
   kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/ingress.yaml)
   ```
+1. Access the application web page and check that it works. Note that Istio was added **transparently**, the original application did not change.
