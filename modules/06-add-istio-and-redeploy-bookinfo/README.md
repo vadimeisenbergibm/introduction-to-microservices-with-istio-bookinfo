@@ -11,7 +11,7 @@
   kubectl apply -f ../../istio-*/install/kubernetes/istio.yaml
   ```
 
-1. Verify that Istio is installed
+1. Verify that Istio is started correctly, all the pods in `istio-system` namespace are running.
   ```bash
   kubectl get pods -n istio-system
   ```
