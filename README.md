@@ -16,4 +16,4 @@ The ideas and scenarios taken from the [Production-Ready Microservices](http://s
    ```bash
    export PATH=$(pwd)/istio-*/bin:$PATH
    ```
-2. Go over `modules`, by their prefix number, issuing `cd` in each modules's directory.
+2. Go over `modules`, by their prefix number, issuing `cd` to each modules's directory.
