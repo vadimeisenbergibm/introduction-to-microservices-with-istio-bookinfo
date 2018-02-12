@@ -19,7 +19,7 @@ kubectl apply -f ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v
   istioctl apply -f ../../istio-0.5.0/samples/bookinfo/kube/route-rule-reviews-test-v2.yaml
   ```
 
-5. Let's login as `jason` (any password would do). We will see that now the reviews have black stars (our new version is used)
+5. Let's login as `jason` (any password would do). We will see that now the reviews have black stars (our new version is used). Now we can let a human tester or a testing tool test our new version on the whole application
 
 5. We verify that our new version of the _reviews_ microserice works correctly with all other microservices in production. We test the whole application, end-to-end, with the version of the _reviews_ microservice.
 
