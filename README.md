@@ -12,8 +12,8 @@ The ideas and scenarios taken from the [Production-Ready Microservices](http://s
    ```bash
    make setup
    ```
-1. Add istio/bin to your ``$PATH`
+1. Alias istioctl
    ```bash
-   export PATH=$(pwd)/istio-*/bin:$PATH
+   alias istioctl=$(pwd)/istio-*/bin/istioctl
    ```
 2. Go over `modules`, by their prefix number, issuing `cd` to each modules's directory.
