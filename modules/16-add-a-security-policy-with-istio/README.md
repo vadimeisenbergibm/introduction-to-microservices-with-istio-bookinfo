@@ -1,6 +1,6 @@
 # Adding a security policy with Istio
 Note that in our setting, any microservice can access any other microservice. If any of the microservices is compromised, it can attack all the other microservice.
-In this learning module we will add a security policy that states that only _reviews_ microservice can access _ratings_ microservice.
+In this learning module we will add a [security policy](https://istio.io/docs/reference/config/istio.mixer.v1.config.html) that states that only _reviews_ microservice can access _ratings_ microservice.
 
 1. Let's see that without a security policy, our _sleep_ microservice can call the _ratings_ microservice.
    ```bash
