@@ -4,6 +4,7 @@
    kubectl delete -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml
    kubectl delete -f ../03-run-bookinfo-with-kubernetes/ingress.yaml
    kubectl delete -f ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v2-with-app-label.yaml
+   kubectl delete -f ../../istio-*/samples/sleep/sleep.yaml
    ```
 1. Install Istio
    ```bash
@@ -12,6 +13,10 @@
 1. Verify that Istio is started correctly, all the pods in `istio-system` namespace are running.
    ```bash
    kubectl get pods -n istio-system
+   ```
+1. Deploy the _sleep_ pod for testing:
+   ```bash
+   kubectl apply -f ../../istio-*/samples/sleep/sleep.yaml
    ```
 1. Deploy Bookinfo application, Istio-enabled
    ```bash
