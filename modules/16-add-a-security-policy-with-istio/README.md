@@ -19,6 +19,6 @@ In this learning module we will add a security policy that states that only _rev
    kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') -- curl http://ratings:9080/ratings/7
    ```
 
-  This time we will get the following error: `NOT_FOUND:whitelist-for-ratings.listchecker.default:sleep is not whitelisted`, as expected.
+   This time we will get the following error: `NOT_FOUND:whitelist-for-ratings.listchecker.default:sleep is not whitelisted`, as expected.
 
 4. Access the webpage of the application and check that it works as expected. It will mean that the _reviews_ microservice can still access the _ratings_ microservice, as expected.
