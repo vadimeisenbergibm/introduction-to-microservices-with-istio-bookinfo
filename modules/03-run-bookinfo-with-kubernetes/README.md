@@ -5,9 +5,9 @@ This learning module shows you an application of four microservices: _productpag
 1. Skim `bookinfo.yaml` - this is a Kubernetes deployment spec of the app. Notice the services and the deployments, and also the replication: 3 replicas of each microservice.
 
 1. Deploy to Kubernetes.
-  ```
-  kubectl apply -f bookinfo.yaml
-  ```
+   ```
+   kubectl apply -f bookinfo.yaml
+   ```
 1. Check the pods status. Notice that each microservice has three pods.
    ```
    kubectl get pods
