@@ -6,7 +6,7 @@ Demonstrates microservices as web apps, node.js, docker, Kubernetes, Istio. The 
 
 The ideas and scenarios taken from the [Production-Ready Microservices](http://shop.oreilly.com/product/0636920053675.do) book of Susan Fowler and from [istio.io guides and tasks](https://istio.io).
 
-0. Install node.js and npm, docker and get access to a Kubernetes cluster.
+1. Install node.js and npm, docker and get access to a Kubernetes cluster.
 
 1. Download Istio and Bookinfo source
    ```bash
