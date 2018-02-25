@@ -18,6 +18,23 @@
 1. Deploy Bookinfo application, Istio-enabled
   ```bash
   kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml)
-  kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/ingress.yaml)
   ```
-1. Access the application web page and check that it works. Note that Istio was added **transparently**, the original application did not change.
+1. Deploy Istio-enabled ingress. Note that it is written slightly differently than the ingress we used for Kubernetes without Istio. Istio-enabled ingress has the annotation `kubernetes.io/ingress.class: "istio"`, and it has no host defined. Check [Determining Ingress IP and Port](https://istio.io/docs/guides/bookinfo.html#determining-the-ingress-ip-and-port) for instructions for your cloud.
+
+For _Bluemix Container Service_, use the following:
+1. Get the host IP of the `istio-ingress` pod.
+```bash
+kubectl get po -l istio=ingress -n istio-system -o 'jsonpath={.items[0].status.hostIP}'
+```
+
+2. Get the public IP of the node on which `istio-ingress` runs:
+```bash
+bx cs workers <your cluster name> | grep <the host IP of istio-ingress>
+```
+
+3. Get the port of the `istio-ingress` service:
+```bash
+kubectl get svc istio-ingress -n istio-system -o 'jsonpath={.spec.ports[0].nodePort}'
+```
+
+4. Use the public IP from the step 2 and the port from the step 3 to access the application. Note that Istio was added **transparently**, the original application did not change.
