@@ -16,7 +16,7 @@
    ```
 1. Deploy the _sleep_ pod for testing:
    ```bash
-   kubectl apply -f ../../istio-*/samples/sleep/sleep.yaml
+   kubectl apply -f <(istioctl kube-inject -f./../istio-*/samples/sleep/sleep.yaml)
    ```
 1. Deploy Bookinfo application, Istio-enabled
    ```bash
