@@ -22,12 +22,7 @@ This learning module shows you an application of four microservices: _productpag
 
 1. Access `http://<your host>/productpage`.
 
-1. Observe how microservices call each other, for example, _reviews_ calls _ratings_ microservice by the URL `http://ratings:9080/ratings`:
-   ```bash
-   more ../samples/bookinfo/src/reviews/reviews-application/src/main/java/application/rest/LibertyRestEndpoint.java
-   ```
-
-   Observe the following line:
+1. Observe how microservices call each other, for example, _reviews_ calls _ratings_ microservice by the URL `http://ratings:9080/ratings`. See the [code of _reviews_](https://github.com/istio/istio/blob/master/samples/bookinfo/src/reviews/reviews-application/src/main/java/application/rest/LibertyRestEndpoint.java):
    ```java
    private final static String ratings_service = "http://ratings:9080/ratings";
    ```
