@@ -1,5 +1,5 @@
 # Logs with Istio
-Logs and monitoring are a very important aspect of microservices architecture. It is so important that it is considered one of the three prerequisites for transition to the microservices architecture style. No monitoring - no transition.
+Logs and monitoring are a very important aspect of microservices architecture. It is so important that it is considered one of the three prerequisites for transition to the microservices architecture style. No monitoring - no transition. (The other two requirements are _rapid provisioning_ and _rapid deployment_, according to [this article](https://aadrake.com/posts/2017-05-20-enough-with-the-microservices.html)).
 
 In this learning module, we will add collecting logs to our application.
 
