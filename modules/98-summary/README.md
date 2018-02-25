@@ -6,8 +6,8 @@ As we saw in the learning modules, Istio provides the following features:
 * Implement fault injection.
 
 # Next steps to learn Istio
-In addition, Istio can [encrypt the traffic between microservices](https://istio.io/docs/tasks/security/mutual-tls.html). Also, Istio supports various microservices patterns, for example timeouts[https://istio.io/docs/tasks/traffic-management/request-timeouts.html], retries, [circuit breakers](https://istio.io/docs/tasks/traffic-management/circuit-breaking.html).
+In addition, Istio can [encrypt the traffic between microservices](https://istio.io/docs/tasks/security/mutual-tls.html). Also, Istio supports various microservices patterns, for example [timeouts](https://istio.io/docs/tasks/traffic-management/request-timeouts.html), retries, [circuit breakers](https://istio.io/docs/tasks/traffic-management/circuit-breaking.html).
 
-Also note that Istio can run on VMs, and with service registries other than Kubernetes. Istio can control the traffic from the outside into the service mesh and the traffic to the external services.
+Also note that [Istio can run on VMs](https://istio.io/docs/guides/integrating-vms.html). Istio can be integrated with [service registries](https://istio.io/docs/setup/) other than Kubernetes. Istio can [control the traffic from the outside into the service mesh](https://istio.io/docs/tasks/traffic-management/ingress.html) and [the traffic to external services](https://istio.io/docs/tasks/traffic-management/egress.html).
 
-See more guides, tasks and blogs at [istio.io](https://istio.ios).
+See more guides, tasks and blog posts at [istio.io](https://istio.ios).
