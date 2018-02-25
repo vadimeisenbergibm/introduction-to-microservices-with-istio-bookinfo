@@ -38,3 +38,5 @@
    4. Use the public IP from the step _ii_ and the port from the step _iii_ to access the application. 
    
  1. Access the application after determining Ingress IP and port. Note that Istio was added **transparently**, the original application did not change.
+ 
+ 2. Check the application pods and see that now each pod has two containers. The first container is the microservice itself, the second is the sidecar proxy attached to it.
