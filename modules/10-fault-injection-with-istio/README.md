@@ -24,7 +24,7 @@ In this learning module, we inject a fault, error 418 on the path from the _rati
    istioctl delete -f route-rule-reviews-fault-418.yaml
    ```
 
-1. Let's check another fault injection - let's insert a delay of seven seconds on requests to _ratings_:
+1. Let's check another kind of fault injection - let's insert a delay of seven seconds on requests to _ratings_:
    ```bash
    istioctl create -f  ../../istio-*/samples/bookinfo/kube/route-rule-ratings-test-delay.yaml
    ```
