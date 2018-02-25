@@ -18,6 +18,9 @@
    kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml)
    ```
 1. Deploy Istio-enabled ingress. Note that it is written slightly differently than the ingress we used for Kubernetes without Istio. Istio-enabled ingress has the annotation `kubernetes.io/ingress.class: "istio"`, and it has no host defined. Check [Determining Ingress IP and Port](https://istio.io/docs/guides/bookinfo.html#determining-the-ingress-ip-and-port) for instructions for your cloud.
+   ```bash
+   kubectl apply -f <(istioctl kube-inject -f ingress.yaml)
+   ```
 
    For _Bluemix Container Service_, use the following:
    1. Get the host IP of the `istio-ingress` pod.
