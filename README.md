@@ -8,11 +8,11 @@ The ideas and scenarios taken from the [Production-Ready Microservices](http://s
 
 1. Install [node.js](https://nodejs.org/en/download/), [docker](https://docs.docker.com/install/) and get access to a [Kubernetes](https://kubernetes.io) cluster. For example, you can try the [IBM Cloud Container Service](https://console.bluemix.net/docs/containers/container_index.html#container_index).
 
-1. Download Istio and Bookinfo source
+1. Download Istio and Bookinfo source:
    ```bash
    make setup
    ```
-1. Alias istioctl
+1. Alias `istioctl`:
    ```bash
    alias istioctl=$(pwd)/istio-*/bin/istioctl
    ```
