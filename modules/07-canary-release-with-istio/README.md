@@ -21,7 +21,7 @@ kubectl apply -f <(istioctl kube-inject -f ../05-adding-a-new-version-of-a-micro
 
 5. Let's login as `jason` (any password would do). We will see that now the reviews have black stars (our new version is used). Now we can let a human tester or a testing tool test our new version on the whole application
 
-5. We verify that our new version of the _reviews_ microserice works correctly with all other microservices in production. We test the whole application, end-to-end, with the version of the _reviews_ microservice.
+5. We verify that our new version of the _reviews_ microserice works correctly with all other microservices in production. We test the whole application, end-to-end, with the new version of the _reviews_ microservice.
 
 6. Let's logout. Now all the reviews appear without stars (our old version is used).
 
