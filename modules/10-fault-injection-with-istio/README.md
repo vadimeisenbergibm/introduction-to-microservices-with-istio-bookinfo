@@ -52,6 +52,6 @@ In this learning module, we inject a fault, error 418 on the path from the _rati
    As we can see, the timeout is too low (three seconds), it cannot accommodate the delays of seven seconds. We must increase it. Also note that we could have removed the timeouts from the code and handle them by Istio route rules.
 
 1. Let's set the delay to two seconds and see that the current application can handle it:
-  ```
-  istioctl replace -f <(cat ../../istio-*/samples/bookinfo/kube/route-rule-ratings-test-delay.yaml | sed 's/7s/2s/g')
-  ```
+   ```bash
+   istioctl replace -f <(cat ../../istio-*/samples/bookinfo/kube/route-rule-ratings-test-delay.yaml | sed 's/7s/2s/g')
+   ```
