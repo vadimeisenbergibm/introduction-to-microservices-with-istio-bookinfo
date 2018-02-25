@@ -49,7 +49,7 @@ In this learning module, we inject a fault, error 418 on the path from the _rati
        res = requests.get(url, headers=headers, timeout=3.0)
    ```
 
-   As we can see, the timeout is too low (three seconds), it cannot accommodate the delays of seven seconds. We must increase it. Also note that we could have removed the timeouts from the code and handle them by Istio route rules.
+   As we can see, the timeout is too low (three seconds), it cannot accommodate the delays of seven seconds. We must increase it. Also note that we can remove the timeouts from the code to make it cleaner, and [handle the timeouts by Istio route rules](https://istio.io/docs/tasks/traffic-management/request-timeouts.html).
 
 1. Let's set the delay to two seconds and see that the current application can handle it:
    ```bash
