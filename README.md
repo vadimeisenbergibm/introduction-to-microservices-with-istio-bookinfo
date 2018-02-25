@@ -1,5 +1,5 @@
 # Introduction to microservices with Bookinfo sample application, Kubernetes and Istio
-Step-by-step introductory tutorial to microservices based on the [Istio bookinfo sample](https://istio.io/docs/guides/bookinfo.html).
+Step-by-step introductory tutorial to microservices based on the [Istio Bookinfo sample](https://istio.io/docs/guides/bookinfo.html).
 
 
 Demonstrates microservices as web apps, node.js, docker, Kubernetes, Istio. The modules show evolution of the application: development of a single microservice, creating a container, deploying the application to Kubernetes, adding Istio to the Kubernetes clusters, deploying new microservice versions, routing traffic to the new version, and finally, monitoring, logging, distributed tracing, and security policies.
