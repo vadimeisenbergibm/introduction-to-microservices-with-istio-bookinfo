@@ -12,9 +12,9 @@ this time with Istio enabled. We will release our new version to the `jason` use
 kubectl apply -f <(istioctl kube-inject -f ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v2-with-app-label.yaml)
   ```
 
-3. Let' access the application's web page multiple times and verify that our new version is not called
+3. Let' access the application's web page multiple times and verify that our new version is not called.
 
-4. Now, let's apply an Istio [route rule](https://istio.io/docs/reference/config/istio.routing.v1alpha1.html) to allow `jason` user to access our new version for testing
+4. Now, let's apply an Istio [route rule](https://istio.io/docs/reference/config/istio.routing.v1alpha1.html) to allow `jason` user to access our new version for testing:
   ```bash
   istioctl create -f ../../istio-*/samples/bookinfo/kube/route-rule-reviews-test-v2.yaml
   ```
@@ -23,7 +23,7 @@ kubectl apply -f <(istioctl kube-inject -f ../05-adding-a-new-version-of-a-micro
 
 5. We verify that our new version of the _reviews_ microserice works correctly with all other microservices in production. We test the whole application, end-to-end, with the version of the _reviews_ microservice.
 
-6. Let's logout. Now all the reviews appear without stars (our old version is used)
+6. Let's logout. Now all the reviews appear without stars (our old version is used).
 
 7. We can query our routing rules:
 ```bash
