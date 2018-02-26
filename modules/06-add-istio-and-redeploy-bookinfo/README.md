@@ -27,7 +27,7 @@
    kubectl apply -f <(istioctl kube-inject -f ingress.yaml)
    ```
 
-   For _Bluemix Container Service_, use the following:
+   For _IBM Cloud Container Service_, use the following:
    1. Get the host IP of the `istio-ingress` pod.
       ```bash
       kubectl get po -l istio=ingress -n istio-system -o 'jsonpath={.items[0].status.hostIP}'
