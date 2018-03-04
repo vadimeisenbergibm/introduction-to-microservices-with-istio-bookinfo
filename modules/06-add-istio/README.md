@@ -1,11 +1,9 @@
-# In this module we will add Istio and redeploy our application, Istio enabled.
-1. Undeploy our application
-   ```bash
-   kubectl delete -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml
-   kubectl delete -f ../03-run-bookinfo-with-kubernetes/ingress.yaml
-   kubectl delete -f ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v2-with-app-label.yaml
-   kubectl delete -f ../../istio-*/samples/sleep/sleep.yaml
-   ```
+# In this module we will deploy the Istio control plane. We will enable Istio for _productpage_ only.
+
+As we saw in the previous module, Kubernetes does not provide us all the functionality we need for effective operating of our microservices. Istio comes to our help.
+
+First we deploy the _Istio control plane_. Then we enable Istio on a single microservice, _productpage_. The rest of the application will continue to operate as previously. Note that we can enable Istio gradually, microservice by microservice. Also note that Istio is enabled transparently to the microservices, we do not change the microservices code. And also note that we enable Istio without disrupting our application, it continues to run and serve user requests.
+
 1. Install Istio
    ```bash
    kubectl apply -f ../../istio-*/install/kubernetes/istio.yaml
@@ -14,34 +12,13 @@
    ```bash
    kubectl get pods -n istio-system
    ```
-1. Deploy the _sleep_ pod for testing:
-   ```bash
-   kubectl apply -f <(istioctl kube-inject -f./../istio-*/samples/sleep/sleep.yaml)
-   ```
 1. Deploy Bookinfo application, Istio-enabled
    ```bash
    kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml)
    ```
-1. Deploy Istio-enabled ingress. Note that it is written slightly differently than the ingress we used for Kubernetes without Istio. Istio-enabled ingress has the annotation `kubernetes.io/ingress.class: "istio"`, and it has no host defined. Check [Determining Ingress IP and Port](https://istio.io/docs/guides/bookinfo.html#determining-the-ingress-ip-and-port) for instructions for your cloud.
-   ```bash
-   kubectl apply -f <(istioctl kube-inject -f ingress.yaml)
-   ```
 
-   For _IBM Cloud Container Service_, use the following:
-   1. Get the host IP of the `istio-ingress` pod.
-      ```bash
-      kubectl get po -l istio=ingress -n istio-system -o 'jsonpath={.items[0].status.hostIP}'
-      ```
-   2. Get the public IP of the node on which `istio-ingress` runs:
-      ```bash
-      bx cs workers <your cluster name> | grep <the host IP of istio-ingress>
-      ```
-   3. Get the port of the `istio-ingress` service:
-      ```bash
-      kubectl get svc istio-ingress -n istio-system -o 'jsonpath={.spec.ports[0].nodePort}'
-      ```
-   4. Use the public IP from the step _ii_ and the port from the step _iii_ to access the application. 
-   
- 1. Access the application after determining Ingress IP and port. Note that Istio was added **transparently**, the original application did not change.
- 
- 2. Check the application pods and see that now each pod has two containers. The first container is the microservice itself, the second is the sidecar proxy attached to it.
+1. Access the application and verify that the application continues to work. Note that Istio was added **transparently**, the code of the original application did not change.
+
+2. Check the pods of the _productpage_ and see that now each replica has two containers. The first container is the microservice itself, the second is the sidecar proxy attached to it.
+
+3. Note that Kubernetes replaced the original pods of _productpage_ with the Istio-enabled pods, transparently and incrementally, performing what is called [rolling update](https://kubernetes.io/docs/tutorials/kubernetes-basics/update-intro/). Kubernetes terminated an old pod only when a new pod started to run, and it transparently switched the traffic to the new pods, one by one. (To be more precise, it did not terminate more than one pod before a new pod was started.) All this was done to prevent disruption of our application, so it continued to work during the injection of Istio.
