@@ -1,4 +1,4 @@
-# In this module we will deploy the Istio control plane. We will enable Istio for _productpage_ only.
+# In this module we will deploy the Istio control plane. We will enable Istio for a single microservice.
 
 As we saw in the previous module, Kubernetes does not provide us all the functionality we need for effective operating of our microservices. Istio comes to our help.
 
