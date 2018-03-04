@@ -9,7 +9,7 @@ this time with Istio enabled. We will release our new version to the `jason` use
 
 2. Let's deploy our new version of the _reviews_ microservice. This time we will deploy it with the _app_ label, since Istio will route the traffic to _v1_ anyway. No traffic will arrive to our new version of the _reviews_ microservice.
    ```bash
-   kubectl apply -f <(istioctl kube-inject -f ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v2-with-app-label.yaml)
+   kubectl apply -f  ../05-adding-a-new-version-of-a-microservice/bookinfo-reviews-v2-with-app-label.yaml
    ```
 
 3. Let' access the application's web page multiple times and verify that our new version is not called.
