@@ -4,6 +4,8 @@ As we saw in the previous module, Kubernetes does not provide us all the functio
 
 First we deploy the _Istio control plane_. Then we enable Istio on a single microservice, _productpage_. The rest of the application will continue to operate as previously. Note that we can enable Istio gradually, microservice by microservice. Also note that Istio is enabled transparently to the microservices, we do not change the microservices code. And also note that we enable Istio without disrupting our application, it continues to run and serve user requests.
 
+We use `istiocl kube-inject` command to inject Istio _sidecar proxies_ into the microservice pods.
+
 1. Install Istio
    ```bash
    kubectl apply -f ../../istio-*/install/kubernetes/istio.yaml
