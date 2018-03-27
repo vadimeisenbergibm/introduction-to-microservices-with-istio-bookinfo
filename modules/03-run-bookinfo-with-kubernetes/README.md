@@ -14,7 +14,7 @@ This learning module shows you an application of four microservices: _productpag
    ```
 1. Edit `ingress.yaml` - specify your host instead of `istio-bookinfo.org`.
     * For _IBM Cloud Container Service_, get your host by running: `bx cs clusters`, `bx cs cluster-get <your cluster>`, use the `Ingress subdomain` field.
-    * For Minikube, get your minikube ip: `minikube ip`. Then perform the following command to add a line to `/etc/hosts`: `echo "$(minikube ip) istio-bookinfo.org" | sudo tee -a /etc/hosts`.
+    * For Minikube, perform the following command to add a line to `/etc/hosts`: `echo "$(minikube ip) istio-bookinfo.org" | sudo tee -a /etc/hosts`.
 
 1. Deploy your ingress:
    ```
