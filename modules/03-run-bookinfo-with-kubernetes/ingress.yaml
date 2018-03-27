@@ -21,7 +21,7 @@ metadata:
   name: gateway
 spec:
   rules:
-  - host: <your kubernetes host>
+  - host: istio-bookinfo.org
     http:
       paths:
       - path: /productpage
