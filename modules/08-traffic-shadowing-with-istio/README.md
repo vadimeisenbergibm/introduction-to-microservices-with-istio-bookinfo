@@ -20,5 +20,5 @@ In this learning module, we will perform traffic shadowing. We will shadow the t
 
 3. Let's remove the rule:
    ```bash
-   istioctl delete -f route-rule-reviews-shadow-v2.yaml
+   istioctl delete -f route-rule-reviews-shadow-v2.yaml -n default
    ```
