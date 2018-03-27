@@ -15,11 +15,12 @@ Let's deploy a new version of the _reviews_ microservice, the one that will retu
      ```bash
      DETAILS_V2_POD_IP=$(kubectl get pod -l version=v2 -o jsonpath='{.items[0].status.podIP}')
      ```
-  2. Send a request to the pod and see that it returns the correct result:
-    ```bash
-    kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') -- curl $DETAILS_V2_POD_IP:9080/reviews/7
-    ```
+  2. Send a request to the pod and see that it returns the correct result:  
+     ```bash
+     kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') -- curl $DETAILS_V2_POD_IP:9080/reviews/7
+     ```
   3. Perform a primitive "load testing" - send requests for 10 times in a row:
+  
      ```bash
      kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') bash
      for i in {1..10}; do curl -o /dev/null -s -w "%{http_code}\n" <the value of DETAILS_V2_POD_IP>:9080/reviews/7; done
