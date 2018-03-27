@@ -16,7 +16,7 @@ We use `istiocl kube-inject` command to inject Istio _sidecar proxies_ into the 
    ```
 1. Deploy Bookinfo application, Istio-enabled
    ```bash
-   kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo.yaml)
+   kubectl apply -f <(istioctl kube-inject -f ../03-run-bookinfo-with-kubernetes/bookinfo-productpage.yaml)
    ```
 
 1. Access the application and verify that the application continues to work. Note that Istio was added **transparently**, the code of the original application did not change.
