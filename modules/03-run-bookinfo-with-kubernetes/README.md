@@ -12,16 +12,46 @@ This learning module shows you an application of four microservices: _productpag
    ```
    kubectl get pods
    ```
-1. Edit `ingress.yaml` - specify your host instead of `istio-bookinfo.org`.
-    * For _IBM Cloud Container Service_, get your host by running: `bx cs clusters`, `bx cs cluster-get <your cluster>`, use the `Ingress subdomain` field.
-    * For Minikube, perform the following command to add a line to `/etc/hosts`: `echo "$(minikube ip) istio-bookinfo.org" | sudo tee -a /etc/hosts`.
 
-1. Deploy your ingress:
+1.  Deploy your ingress:
+
+    ```
+    MYHOST=$(kubectl config view -o jsonpath={.contexts..namespace}).bookinfo.com kubectl apply -f - <<EOF
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: bookinfo
+    spec:
+      rules:
+      - host: $MYHOST
+        http:
+          paths:
+          - path: /productpage
+            backend:
+              serviceName: productpage
+              servicePort: 9080
+          - path: /login
+            backend:
+              serviceName: productpage
+              servicePort: 9080
+          - path: /logout
+            backend:
+              serviceName: productpage
+              servicePort: 9080
+    EOF
+    ```
+
+1. Append the output of the following command to `/etc/hosts`:
+
    ```
-   kubectl apply -f ingress.yaml
+   kubectl get ingress bookinfo -o jsonpath='{..ip} {..host}'
    ```
 
-1. Access `http://<your host>/productpage`.
+1. Paste the output of the following command in your browser address bar:
+
+   ```
+   kubectl get ingress bookinfo -o jsonpath='http://{..host}/productpage'
+   ```
 
 1. Observe how microservices call each other, for example, _reviews_ calls _ratings_ microservice by the URL `http://ratings:9080/ratings`. See the [code of _reviews_](https://github.com/istio/istio/blob/master/samples/bookinfo/src/reviews/reviews-application/src/main/java/application/rest/LibertyRestEndpoint.java):
    ```java
