@@ -2,6 +2,7 @@ apiVersion: config.istio.io/v1alpha2
 kind: listchecker
 metadata:
   name: whitelist-for-ratings
+  namespace: default
 spec:
   overrides: ["reviews"]  # overrides provide a static list
   blacklist: false
@@ -10,6 +11,7 @@ apiVersion: config.istio.io/v1alpha2
 kind: listentry
 metadata:
   name: applabel
+  namespace: default
 spec:
   value: source.labels["app"]
 ---
@@ -17,6 +19,7 @@ apiVersion: config.istio.io/v1alpha2
 kind: rule
 metadata:
   name: checksourceapp
+  namespace: default
 spec:
   match: destination.labels["app"] == "ratings"
   actions:
