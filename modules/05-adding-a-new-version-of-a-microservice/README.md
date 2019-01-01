@@ -20,10 +20,9 @@ Let's deploy a new version of the _reviews_ microservice, namely _v2_, the one t
      kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') -- curl $DETAILS_V2_POD_IP:9080/reviews/7
      ```
   3. Perform a primitive "load testing" - send requests for 10 times in a row:
-  
+
      ```bash
-     kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') bash
-     for i in {1..10}; do curl -o /dev/null -s -w "%{http_code}\n" <the value of DETAILS_V2_POD_IP>:9080/reviews/7; done
+     kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath='{.items[0].metadata.name}') -- sh -c "for i in `seq -s" " 1 10`; do curl -o /dev/null -s -w '%{http_code}\n' $DETAILS_V2_POD_IP:9080/reviews/7; done"
      ```
 4. Now we are rather confident that our new version of _reviews_ will work and we will release it. We will release a single replica of it into production - the real production traffic will arrive to our new version. In the current setting, 75% of the traffic will arrive to the old version (three pods of the old version) and 25% will arrive to the new version (one pod).
 
