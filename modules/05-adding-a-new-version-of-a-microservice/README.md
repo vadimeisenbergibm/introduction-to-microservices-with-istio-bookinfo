@@ -1,10 +1,10 @@
 # Deploy and release a new version of _reviews_
 
-Let's deploy a new version of the _reviews_ microservice, the one that will return the ratings provided by reviewers, as a number of stars, with the color of stars. In the real life, we would perform lint tests, unit tests, integration tests, end-to-end tests and tests in the staging environment.
+Let's deploy a new version of the _reviews_ microservice, namely _v2_, the one that will return the ratings provided by reviewers, as a number of stars, with the color of stars. In the real life, we would perform lint tests, unit tests, integration tests, end-to-end tests and tests in the staging environment.
 
 1. Deploy the new version of the _reviews_ microservice without the `app` label. Without the `app` label, our new version of the microservice will not be selected to provide the _reviews_ service. As such, it will not be called by the production code.
   ```bash
-  kubectl apply -f bookinfo-reviews-v2-without-app-label.yaml
+  curl -s https://raw.githubusercontent.com/istio/istio/master/samples/bookinfo/platform/kube/bookinfo-reviews-v2.yaml | grep -v 'app: reviews' | kubectl apply -f -
   ```
 
 2. Let's access our application and see that the deployed microservice did not disrupt it. So far so good.
