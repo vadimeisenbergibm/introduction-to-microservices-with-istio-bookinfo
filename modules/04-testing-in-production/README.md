@@ -4,7 +4,7 @@ Let's perform some testing of our microservice . This learning module exemplifie
 
 1. Let's send some requests to our microservice from inside the cluster, we will use a dummy pod, `sleep`.
    ```
-   kubectl apply -f ../../istio-*/samples/sleep/sleep.yaml
+   kubectl apply -f https://raw.githubusercontent.com/istio/istio/master/samples/sleep/sleep.yaml
    ```
 
    Once the `sleep` pod is ready, we can issue HTTP requests from it to our service and test it
