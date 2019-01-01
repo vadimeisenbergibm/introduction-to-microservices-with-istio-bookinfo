@@ -26,11 +26,10 @@ Let's deploy a new version of the _reviews_ microservice, namely _v2_, the one t
      ```
 4. Now we are rather confident that our new version of _reviews_ will work and we will release it. We will release a single replica of it into production - the real production traffic will arrive to our new version. In the current setting, 75% of the traffic will arrive to the old version (three pods of the old version) and 25% will arrive to the new version (one pod).
 
-  To release _reviews v2_ we will undeploy our new version and redeploy it with the _app_ label, so it will become addressable by the _reviews_ service.
+  To release _reviews v2_ we will redeploy our pod with the _app_ label, so it will become addressable by the _reviews_ service.
 
   ```bash
-  kubectl delete -f bookinfo-reviews-v2-without-app-label.yaml
-  kubectl apply -f bookinfo-reviews-v2-with-app-label.yaml
+  kubectl apply -f https://raw.githubusercontent.com/istio/istio/master/samples/bookinfo/platform/kube/bookinfo-reviews-v2.yaml
   ```
 
   We can check the labels of our pod:
