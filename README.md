@@ -12,7 +12,7 @@ file.
 To view the default namespace of a participant run:
 
 ```
-kubectl config view -o jsonpath={.contexts..namespace}
+echo $(kubectl config view -o jsonpath="{.contexts[?(@.name == \"$(kubectl config current-context)\")].context.namespace}")
 ```
 
 The ideas and scenarios taken from the [Production-Ready Microservices](http://shop.oreilly.com/product/0636920053675.do) book of Susan Fowler and from the [istio.io guides, tasks and blog](https://istio.io).
